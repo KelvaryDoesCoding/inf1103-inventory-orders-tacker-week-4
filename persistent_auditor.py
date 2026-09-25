@@ -35,8 +35,6 @@ def save_inventory(total, history):
         file.write(str(total) + "\n")
         file.write(",".join(map(str, history)))
 
-    print("\nInventory successfully saved to inventory.txt")
-
 
 def load_orders():
     orders = []
@@ -68,8 +66,6 @@ def save_orders(orders):
             file.write(
                 f"{order_id},{product_name},{quantity}\n"
             )
-
-    print("Orders successfully saved to orders.txt")
 
 
 # Retrieve and validate input
@@ -138,7 +134,6 @@ for order_id, product_name, quantity in orders:
         f"{order_id}, {product_name}, {quantity}"
     )
 
-
 print("\n======== Inventory Auditor ========")
 print(f"Current inventory: {stock_quantity} units")
 print(
@@ -183,14 +178,19 @@ while stock_quantity < 500:
     # Add order
     orders.append(new_order)
 
+    print("\nNew Order Added:")
     print(
         f"{new_order[0]}, "
         f"{new_order[1]}, "
         f"{new_order[2]}"
     )
 
+    print("\nOrders successfully saved to orders.txt")
+
     # Track transaction history
     transaction_history.append(stock_input)
+
+    print("\nInventory units successfully saved to inventory.txt")
 
     # Calculate tax
     tax = calculate_tax(stock_input)
@@ -226,20 +226,24 @@ while stock_quantity < 500:
             f"Total inventory is {stock_quantity} units"
         )
 
+    print("\n======== Current Orders ========")
 
-print(
+    for order_id, product_name, quantity in orders:
+        print(
+        f"{order_id}, {product_name}, {quantity}"
+        )   
+
+    print(
     f"\nTransaction history: {transaction_history}"
-)
-
-
-# Save files
-save_inventory(
+    )
+    # Save files
+    
+    save_inventory(
     stock_quantity,
     transaction_history
-)
+    )
 
-save_orders(orders)
-
+    save_orders(orders)
 
 # Generate final report
 generate_reports(

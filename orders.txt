@@ -1,6 +1,4 @@
 1001,Wireless Mouse,2
 1002,Keyboard,1
 1003,USB Cable,3
-1004,Router,300
-1005,First-Aid Kit,30
-1006,Red Dead Redemption 2,100
+
