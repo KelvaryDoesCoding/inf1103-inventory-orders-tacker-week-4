@@ -77,12 +77,23 @@ def get_valid_input():
 
         if product_item.lower() == "quit":
             return "quit", None, failed_attempts
+        
+        if product_item == "":
+            print("\nError: Product name cannot be empty!")
+            failed_attempts += 1
+            continue
+
+        if product_item.isdigit():
+            print("\nError: Product name cannot contain only numbers!")
+            failed_attempts += 1
+            continue
 
         stock_input = input("Please enter quantity: ")
 
         if stock_input.lower() == "quit":
             return "quit", None, failed_attempts
 
+        
         # Integer check
         try:
             stock_input = int(stock_input)
@@ -237,7 +248,7 @@ while stock_quantity < 500:
     f"\nTransaction history: {transaction_history}"
     )
     # Save files
-    
+
     save_inventory(
     stock_quantity,
     transaction_history

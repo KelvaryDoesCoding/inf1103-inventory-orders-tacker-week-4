@@ -1,4 +1,8 @@
 1001,Wireless Mouse,2
 1002,Keyboard,1
 1003,USB Cable,3
-
+1004,iPhone 17,10
+1005,Sunsilk shampoo,2
+1006,Nalgene,34
+1007,Fridge,2
+1008,Horse,20
